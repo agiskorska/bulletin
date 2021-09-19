@@ -25,7 +25,6 @@ const styles = {
 
 function ButtonAppBar(props) {
   const { classes, isLogged } = props;
-  console.log(isLogged);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -34,10 +33,10 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink to='/'>Recent Posts</NavLink>
+            {isLogged ? (<NavLink to='/'>Recent Posts</NavLink>) : ''}
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink to='/post/add'>Add Posts</NavLink>
+            {isLogged ? (<NavLink to='/post/add'>Add Posts</NavLink>) : ''}
           </Typography>
           <Button color="inherit"><a href='http://google.com'>{isLogged ? 'Sign Out' : 'Login'}</a></Button>
         </Toolbar>

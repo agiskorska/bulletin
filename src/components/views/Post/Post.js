@@ -9,19 +9,19 @@ import { getAll } from '../../../redux/postsRedux';
 
 import styles from './Post.module.scss';
 
-const displayPosts = (posts, postNumber=posts.length) => posts.reverse().map((post, id) => {
-  if(id<postNumber) {
+const displayPosts = (posts, user) => posts.reverse().map((post, id) => {
+  if(!user.isLogged || user.rights === 'admin' || (user.rights === 'user' && posts.userId === user.id)) {
     return(
-      <PostCard {...post} key={id}/>
+      <PostCard {...post} key={id} edit={user.isLogged}/>
     );
   }
   return null;
 });
 
-const Component = ({className, postNumber, posts }) => {
+const Component = ({user, className, posts}) => {
   return(
     <div className={clsx(className, styles.root)}>
-      {displayPosts(posts, postNumber)}
+      {displayPosts(posts, user)}
     </div>
   );
 };
@@ -30,6 +30,9 @@ Component.propTypes = {
   className: PropTypes.string,
   posts: PropTypes.array,
   postNumber: PropTypes.number,
+  user: PropTypes.object,
+  // id: PropTypes.string,
+  // rights: PropTypes.string,
 };
 
 const mapStateToProps = state => ({

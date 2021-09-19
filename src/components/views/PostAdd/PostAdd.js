@@ -16,7 +16,8 @@ const formContent = {
   description: '',
 };
 
-const Component = ({className, children}) => {
+const Component = ({className, children, user}) => {
+  console.log(user);
   return(
     <div className={clsx(className, styles.root)}>
       <h2>Add a new post</h2>
@@ -28,6 +29,7 @@ const Component = ({className, children}) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  user: PropTypes.object,
 };
 
 // const mapStateToProps = state => ({

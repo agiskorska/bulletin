@@ -4,6 +4,8 @@ export const initialState = {
       [
         {
           id: 2342342346,
+          author: 'Jane Doe',
+          userId: 'a002',
           date: 'Sun Sep 12 2021 11:00:49 GMT+0100',
           phoneNumber: 700000000,
           price: 40,
@@ -16,6 +18,8 @@ export const initialState = {
         },
         {
           id: 2342342348,
+          author: 'Joe Doe',
+          userId: 'a001',
           date: 'Sun Aug 29 2021 11:00:49 GMT+0100',
           phoneNumber: 700000000,
           price: 40,
@@ -28,6 +32,8 @@ export const initialState = {
         },
         {
           id: 2342342343,
+          author: 'Joe Doe',
+          userId: 'a001',
           date: 'Sun Sep 5 2021 11:00:49 GMT+0100',
           phoneNumber: 700000000,
           price: 40,
@@ -40,6 +46,8 @@ export const initialState = {
         },
         {
           id: 2342342342,
+          author: 'Joe Doe',
+          userId: 'a001',
           date: 'Sun Sep 19 2021 11:00:49 GMT+0100',
           phoneNumber: 700000000,
           price: 40,
@@ -59,6 +67,8 @@ export const initialState = {
   },
   user: {
     isLogged: true,
+    rights: 'admin',
+    id: 'a001',
     name: 'John',
     surname: 'Doe',
     image: 'https://pickaface.net/gallery/avatar/20150828_003518_4928_Username.png',

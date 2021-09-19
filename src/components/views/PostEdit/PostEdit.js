@@ -11,7 +11,7 @@ import { AddPostForm } from '../../features/AddPostForm/AddPostForm.js';
 
 const getPostId = (props) => {
   let id = '';
-  if(!props.location.aboutProps) {
+  if(!props.location) {
     const pathArr = window.location.pathname.split('/');
     id = parseInt(pathArr[2]);
     console.log(pathArr);
@@ -22,7 +22,7 @@ const getPostId = (props) => {
   return id;
 };
 
-const Component = ({className, children, post}) => {
+const Component = ({className, children, post, user}) => {
   return(
     <div className={clsx(className, styles.root)}>
       <h2>PostEdit</h2>
@@ -37,6 +37,7 @@ Component.propTypes = {
   className: PropTypes.string,
   location: PropTypes.any,
   post: PropTypes.object,
+  user: PropTypes.any,
 };
 
 const mapStateToProps = (state, props) => ({

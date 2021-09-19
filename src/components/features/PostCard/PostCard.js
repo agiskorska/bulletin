@@ -59,7 +59,7 @@ class PostCard extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { avatar, imageUrl, imageTitle, price, date, phoneNumber, shortDescription, description, id } = this.props;
+    const { avatar, imageUrl, imageTitle, price, date, phoneNumber, shortDescription, description, id, author, edit} = this.props;
     const linkToEdit = '/post/' + id + '/edit';
     return (
       <Card className={classes.card}>
@@ -69,19 +69,29 @@ class PostCard extends React.Component {
               <img src={avatar} alt='avatar'></img>
             </Avatar>
           }
-          action={
-            <IconButton  >
-              <Link to={{
-                pathname: linkToEdit,
-                aboutProps: {
-                  id: id,
-                },
-              }}><EditIcon /></Link>
 
-            </IconButton>
+          action={
+            <div>
+              {edit ?
+                (<IconButton  >
+                  <Link to={{
+                    pathname: linkToEdit,
+                    aboutProps: {
+                      id: id,
+                    },
+                  }}><EditIcon />
+                  </Link>
+                </IconButton>) : ''
+              }
+            </div>
           }
           title={shortDescription}
-          subheader={date}
+          subheader={
+            <div>
+              {date}
+              <p>Author: {author}</p>
+            </div>
+          }
         />
         <CardMedia
           className={classes.media}
@@ -136,6 +146,8 @@ PostCard.propTypes = {
   date: PropTypes.string,
   phoneNumber: PropTypes.number,
   price: PropTypes.number,
+  author: PropTypes.any,
+  edit: PropTypes.bool,
 };
 
 export default withStyles(styles)(PostCard);

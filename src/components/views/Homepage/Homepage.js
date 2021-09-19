@@ -8,16 +8,20 @@ import clsx from 'clsx';
 
 import styles from './Homepage.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <Post />
-    {children}
-  </div>
-);
+const Component = ({className, user}) => {
+  console.log(user);
+  return(
+    <div className={clsx(className, styles.root)}>
+      {user.id}
+      <Post {...user}/>
+    </div>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  user: PropTypes.object,
 };
 
 // const mapStateToProps = state => ({

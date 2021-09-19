@@ -27,21 +27,17 @@ class Component extends React.Component {
         date: new Date().toString(),
       };
 
-    console.log(this.state);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    console.log(event.target.name);
     this.setState({[event.target.name]: event.target.value});
-    console.log(this.state);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
     this.props.uploadPost(this.state);
   }
 
