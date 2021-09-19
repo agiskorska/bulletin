@@ -26,7 +26,7 @@ const Component = ({className, children, post, user}) => {
   return(
     <div className={clsx(className, styles.root)}>
       <h2>PostEdit</h2>
-      <AddPostForm  {...post}/>
+      {user.isLogged ? <AddPostForm  {...post}/> : 'Please log in first'}
       {children}
     </div>
   );

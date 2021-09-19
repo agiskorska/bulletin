@@ -66,7 +66,7 @@ export const initialState = {
     },
   },
   user: {
-    isLogged: true,
+    isLogged: false,
     rights: 'admin',
     id: 'a001',
     name: 'John',
